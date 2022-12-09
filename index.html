@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="elDiv">
+        <ul id="list">
+            <li>ya esta</li>
+        </ul>
+
+
+    </div>
+    <script>
+        const li1 = document.createElement('li');
+        const textli1 = document.createTextNode('por fin');
+        li1.appendChild(textli1);
+        const lista = document.getElementById('list');
+        lista.appendChild(li1);
+        lista.insertBefore(li1, lista.children[0]);
+        console.log(lista);
+        
+        
+        //Hacer un boton que esconda/enseñe el texto de un parrafo cada vez que se pulsa el mismo boton. Por defecto, el párrafo debe estar visible. Dar estilos a los elementos afectados
+        
+        //primero hice el parrafo
+        const contenedorparrafoBoton = document.getElementById('elDiv');
+        const parrafo = document.createElement('p');
+        const textoparrafo = document.createTextNode('este es mi parrafito sdhgfihsifhsfn sfhisuhksf affñowoqa zzaqfhg shishgkh');
+        parrafo.appendChild(textoparrafo);
+        parrafo.setAttribute('id', 'soyelparrafo' );
+        contenedorparrafoBoton.insertBefore(parrafo, contenedorparrafoBoton.children[1]);
+        console.log(parrafo);
+
+        //ahora el boton el div será el mismo al del parrafo
+        const boton = document.createElement('input');
+        boton.setAttribute('type', 'button' );
+        contenedorparrafoBoton.appendChild(boton);
+        console.log(boton);
+
+        boton.style.background = 'gray';
+        boton.style.color = 'white';
+        boton.style.width = '80px';
+        boton.style.height = '40px';
+        boton.style.borderRadius = '5%';
+
+        boton.textContent ='soy un Boton';
+        
+       
+
+        boton.addEventListener('click',()=>document.getElementById("soyelparrafo").style.display = 'none');
+
+        // boton.addEventListener('onmousemove',()=> document.getElementById("soyelparrafo").style.display = 'block');
+        </script>
+</body>
+</html>
